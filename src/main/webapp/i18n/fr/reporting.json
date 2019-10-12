@@ -1,0 +1,26 @@
+{
+  "cfcEvalManagerApp": {
+    "reporting": {
+      "home": {
+        "title": "Reportings",
+        "createLabel": "Créer un nouveau Reporting",
+        "createOrEditLabel": "Créer ou éditer un Reporting",
+        "notFound": "Aucun Reporting trouvé"
+      },
+      "created": "Un nouveau Reporting a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reporting avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reporting avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Reporting {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reporting"
+      },
+      "libelle": "Libelle",
+      "description": "Description",
+      "document": "Document",
+      "objectif": "Objectif",
+      "personnel": "Personnel"
+    }
+  }
+}

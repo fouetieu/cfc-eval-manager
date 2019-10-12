@@ -1,0 +1,27 @@
+{
+  "cfcEvalManagerApp": {
+    "planDaction": {
+      "home": {
+        "title": "Plan Dactions",
+        "createLabel": "Create a new Plan Daction",
+        "createOrEditLabel": "Create or edit a Plan Daction",
+        "notFound": "No Plan Dactions found"
+      },
+      "created": "A new Plan Daction is created with identifier {{ param }}",
+      "updated": "A Plan Daction is updated with identifier {{ param }}",
+      "deleted": "A Plan Daction is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Plan Daction {{ id }}?"
+      },
+      "detail": {
+        "title": "Plan Daction"
+      },
+      "tache": "Tache",
+      "description": "Description",
+      "dateDebut": "Date Debut",
+      "dateFIn": "Date F In",
+      "objectif": "Objectif",
+      "personnel": "Personnel"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+    "name": "Reporting",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "document",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "objectif",
+            "otherEntityRelationshipName": "reporting",
+            "relationshipValidateRules": "required",
+            "relationshipName": "objectif",
+            "otherEntityField": "libelle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "personnel",
+            "otherEntityRelationshipName": "reporting",
+            "relationshipValidateRules": "required",
+            "relationshipName": "personnel",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20191012025316",
+    "entityTableName": "reporting",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

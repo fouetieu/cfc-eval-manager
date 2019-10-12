@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.home.title">Session Evaluations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-session-evaluation" [routerLink]="['/session-evaluation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="cfcEvalManagerApp.sessionEvaluation.home.createLabel">
+            Create a new Session Evaluation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sessionEvaluations?.length === 0">
+        <span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.home.notFound">No sessionEvaluations found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sessionEvaluations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.libelle">Libelle</span></th>
+            <th scope="col" ><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.dateDebut">Date Debut</span></th>
+            <th scope="col" ><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.dateFin">Date Fin</span></th>
+            <th scope="col" ><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.active">Active</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sessionEvaluation of sessionEvaluations ;trackBy: trackId">
+                <td><a [routerLink]="['/session-evaluation', sessionEvaluation.id, 'view' ]">{{sessionEvaluation.id}}</a></td>
+                <td>{{sessionEvaluation.libelle}}</td>
+                <td>{{sessionEvaluation.dateDebut | date:'medium'}}</td>
+                <td>{{sessionEvaluation.dateFin | date:'medium'}}</td>
+                <td>{{sessionEvaluation.active}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/session-evaluation', sessionEvaluation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/session-evaluation', sessionEvaluation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/session-evaluation', { outlets: { popup: sessionEvaluation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "cfcEvalManagerApp": {
+    "personnel": {
+      "home": {
+        "title": "Personnels",
+        "createLabel": "Créer un nouveau Personnel",
+        "createOrEditLabel": "Créer ou éditer un Personnel",
+        "notFound": "Aucun Personnel trouvé"
+      },
+      "created": "Un nouveau Personnel a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Personnel avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Personnel avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Personnel {{ id }} ?"
+      },
+      "detail": {
+        "title": "Personnel"
+      },
+      "matricule": "Matricule",
+      "nom": "Nom",
+      "poste": "Poste",
+      "dateNaiss": "Date Naiss",
+      "sexe": "Sexe",
+      "utilisateur": "Utilisateur",
+      "objectif": "Objectif",
+      "planDaction": "Plan Daction",
+      "reporting": "Reporting",
+      "evaluation": "Evaluation"
+    }
+  }
+}

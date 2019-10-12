@@ -1,0 +1,26 @@
+{
+  "cfcEvalManagerApp": {
+    "sessionEvaluation": {
+      "home": {
+        "title": "SessionEvaluations",
+        "createLabel": "Créer un nouveau Session Evaluation",
+        "createOrEditLabel": "Créer ou éditer un Session Evaluation",
+        "notFound": "Aucun Session Evaluation trouvé"
+      },
+      "created": "Un nouveau Session Evaluation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Session Evaluation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Session Evaluation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Session Evaluation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Session Evaluation"
+      },
+      "libelle": "Libelle",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "active": "Active",
+      "evaluation": "Evaluation"
+    }
+  }
+}

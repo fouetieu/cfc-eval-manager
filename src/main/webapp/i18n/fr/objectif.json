@@ -1,0 +1,29 @@
+{
+  "cfcEvalManagerApp": {
+    "objectif": {
+      "home": {
+        "title": "Objectifs",
+        "createLabel": "Créer un nouveau Objectif",
+        "createOrEditLabel": "Créer ou éditer un Objectif",
+        "notFound": "Aucun Objectif trouvé"
+      },
+      "created": "Un nouveau Objectif a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Objectif avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Objectif avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Objectif {{ id }} ?"
+      },
+      "detail": {
+        "title": "Objectif"
+      },
+      "libelle": "Libelle",
+      "livrable": "Livrable",
+      "indicateur": "Indicateur",
+      "dateFin": "Date Fin",
+      "planDaction": "Plan Daction",
+      "reporting": "Reporting",
+      "evaluation": "Evaluation",
+      "personnel": "Personnel"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+    "name": "Personnel",
+    "fields": [
+        {
+            "fieldName": "matricule",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "poste",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateNaiss",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "sexe",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "personnel",
+            "relationshipName": "utilisateur",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "objectif",
+            "otherEntityRelationshipName": "personnel",
+            "relationshipName": "objectif"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "planDaction",
+            "otherEntityRelationshipName": "personnel",
+            "relationshipName": "planDaction"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reporting",
+            "otherEntityRelationshipName": "personnel",
+            "relationshipName": "reporting"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "evaluation",
+            "otherEntityRelationshipName": "personnel",
+            "relationshipName": "evaluation"
+        }
+    ],
+    "changelogDate": "20191012025311",
+    "entityTableName": "personnel",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

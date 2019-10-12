@@ -1,0 +1,56 @@
+entity Personnel{
+	Matricule String required
+	Nom String required
+	Poste String
+	DateNaiss Instant 
+	Sexe String
+}
+
+entity Objectif{	
+	Libelle String required
+	Livrable TextBlob required
+	Indicateur TextBlob required
+	DateFin Instant required
+} 
+
+entity SessionEvaluation{ 	
+	Libelle String required
+	DateDebut Instant required
+	DateFin Instant required
+	Active	Boolean required
+}
+
+entity Evaluation{ 	
+	DateEvaluation Instant required
+	Note Integer required	
+}
+
+entity PlanDaction{	
+	Tache String required
+	Description TextBlob
+	DateDebut Instant
+	DateFIn Instant
+	
+}
+
+entity Reporting{	
+	Libelle String required
+	Description TextBlob required
+	document Blob
+}
+
+relationship OneToOne {
+	Personnel{utilisateur(login)} to User 
+}
+
+relationship OneToMany{
+	Personnel to Objectif{personnel(Nom) required}
+	Objectif to PlanDaction{objectif(Libelle) required}
+	Personnel to PlanDaction{personnel(Nom) required}
+	Objectif to Reporting{objectif(Libelle) required}
+	Personnel to Reporting{personnel(Nom) required}
+	Objectif to Evaluation{objectif(Libelle) required}
+	SessionEvaluation to Evaluation{session(Libelle) required}
+	Personnel to Evaluation{personnel(Nom) required}
+}
+

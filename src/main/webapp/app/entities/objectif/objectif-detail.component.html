@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="objectif">
+            <h2><span jhiTranslate="cfcEvalManagerApp.objectif.detail.title">Objectif</span> {{objectif.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cfcEvalManagerApp.objectif.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{objectif.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="cfcEvalManagerApp.objectif.livrable">Livrable</span></dt>
+                <dd>
+                    <span>{{objectif.livrable}}</span>
+                </dd>
+                <dt><span jhiTranslate="cfcEvalManagerApp.objectif.indicateur">Indicateur</span></dt>
+                <dd>
+                    <span>{{objectif.indicateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="cfcEvalManagerApp.objectif.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{objectif.dateFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="cfcEvalManagerApp.objectif.personnel">Personnel</span></dt>
+                <dd>
+                    <div *ngIf="objectif.personnel">
+                        <a [routerLink]="['/personnel', objectif.personnel?.id, 'view']">{{objectif.personnel?.nom}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/objectif', objectif.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sessionEvaluation">
+            <h2><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.detail.title">Session Evaluation</span> {{sessionEvaluation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{sessionEvaluation.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{sessionEvaluation.dateDebut}}</span>
+                </dd>
+                <dt><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{sessionEvaluation.dateFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="cfcEvalManagerApp.sessionEvaluation.active">Active</span></dt>
+                <dd>
+                    <span>{{sessionEvaluation.active}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/session-evaluation', sessionEvaluation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

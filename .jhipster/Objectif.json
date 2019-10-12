@@ -1,0 +1,73 @@
+{
+    "name": "Objectif",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "livrable",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "indicateur",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "planDaction",
+            "otherEntityRelationshipName": "objectif",
+            "relationshipName": "planDaction"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reporting",
+            "otherEntityRelationshipName": "objectif",
+            "relationshipName": "reporting"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "evaluation",
+            "otherEntityRelationshipName": "objectif",
+            "relationshipName": "evaluation"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "personnel",
+            "otherEntityRelationshipName": "objectif",
+            "relationshipValidateRules": "required",
+            "relationshipName": "personnel",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20191012025312",
+    "entityTableName": "objectif",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
