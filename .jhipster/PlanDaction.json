@@ -1,0 +1,53 @@
+{
+    "name": "PlanDaction",
+    "fields": [
+        {
+            "fieldName": "tache",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateFIn",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "objectif",
+            "otherEntityRelationshipName": "planDaction",
+            "relationshipValidateRules": "required",
+            "relationshipName": "objectif",
+            "otherEntityField": "libelle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "personnel",
+            "otherEntityRelationshipName": "planDaction",
+            "relationshipValidateRules": "required",
+            "relationshipName": "personnel",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20191012025315",
+    "entityTableName": "plan_daction",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

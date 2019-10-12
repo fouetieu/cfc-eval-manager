@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-evaluation-heading" jhiTranslate="cfcEvalManagerApp.evaluation.home.createOrEditLabel">Create or edit a Evaluation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cfcEvalManagerApp.evaluation.dateEvaluation" for="field_dateEvaluation">Date Evaluation</label>
+                    <div class="d-flex">
+                        <input id="field_dateEvaluation" type="datetime-local" class="form-control" name="dateEvaluation" formControlName="dateEvaluation" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateEvaluation').invalid && (editForm.get('dateEvaluation').dirty || editForm.get('dateEvaluation').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateEvaluation').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateEvaluation').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cfcEvalManagerApp.evaluation.note" for="field_note">Note</label>
+                    <input type="number" class="form-control" name="note" id="field_note"
+                           formControlName="note"/>
+                    <div *ngIf="editForm.get('note').invalid && (editForm.get('note').dirty || editForm.get('note').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('note').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('note')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cfcEvalManagerApp.evaluation.objectif" for="field_objectif">Objectif</label>
+                    <select class="form-control" id="field_objectif" name="objectif" formControlName="objectif">
+                        <option *ngIf="!editForm.get('objectif').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="objectifOption.id === editForm.get('objectif').value?.id ? editForm.get('objectif').value : objectifOption" *ngFor="let objectifOption of objectifs; trackBy: trackObjectifById">{{objectifOption.libelle}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('objectif').invalid && (editForm.get('objectif').dirty || editForm.get('objectif').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('objectif').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cfcEvalManagerApp.evaluation.session" for="field_session">Session</label>
+                    <select class="form-control" id="field_session" name="session" formControlName="session">
+                        <option *ngIf="!editForm.get('session').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="sessionEvaluationOption.id === editForm.get('session').value?.id ? editForm.get('session').value : sessionEvaluationOption" *ngFor="let sessionEvaluationOption of sessionevaluations; trackBy: trackSessionEvaluationById">{{sessionEvaluationOption.libelle}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('session').invalid && (editForm.get('session').dirty || editForm.get('session').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('session').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="cfcEvalManagerApp.evaluation.personnel" for="field_personnel">Personnel</label>
+                    <select class="form-control" id="field_personnel" name="personnel" formControlName="personnel">
+                        <option *ngIf="!editForm.get('personnel').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="personnelOption.id === editForm.get('personnel').value?.id ? editForm.get('personnel').value : personnelOption" *ngFor="let personnelOption of personnels; trackBy: trackPersonnelById">{{personnelOption.nom}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('personnel').invalid && (editForm.get('personnel').dirty || editForm.get('personnel').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('personnel').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

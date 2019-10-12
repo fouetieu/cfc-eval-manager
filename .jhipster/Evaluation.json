@@ -1,0 +1,55 @@
+{
+    "name": "Evaluation",
+    "fields": [
+        {
+            "fieldName": "dateEvaluation",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "note",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "objectif",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipValidateRules": "required",
+            "relationshipName": "objectif",
+            "otherEntityField": "libelle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sessionEvaluation",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipValidateRules": "required",
+            "relationshipName": "session",
+            "otherEntityField": "libelle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "personnel",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipValidateRules": "required",
+            "relationshipName": "personnel",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20191012025314",
+    "entityTableName": "evaluation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
